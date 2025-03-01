@@ -1474,19 +1474,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\39380\\.nuget\\packages\\": {}
+    "C:\\Users\\matsh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\39380\\OneDrive - Syddansk Universitet\\Desktop\\Test\\NomeDelProgetto\\NomeDelProgetto.csproj",
+      "projectUniqueName": "C:\\Users\\matsh\\OneDrive\\Desktop\\Uni\\SDU\\2nd. Semester\\Advanced OOP\\Home Assignements\\Cheeky-Squirrals-Home-Assignment-1-2nd\\Test\\NomeDelProgetto\\NomeDelProgetto.csproj",
       "projectName": "NomeDelProgetto",
-      "projectPath": "C:\\Users\\39380\\OneDrive - Syddansk Universitet\\Desktop\\Test\\NomeDelProgetto\\NomeDelProgetto.csproj",
-      "packagesPath": "C:\\Users\\39380\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\39380\\OneDrive - Syddansk Universitet\\Desktop\\Test\\NomeDelProgetto\\obj\\",
+      "projectPath": "C:\\Users\\matsh\\OneDrive\\Desktop\\Uni\\SDU\\2nd. Semester\\Advanced OOP\\Home Assignements\\Cheeky-Squirrals-Home-Assignment-1-2nd\\Test\\NomeDelProgetto\\NomeDelProgetto.csproj",
+      "packagesPath": "C:\\Users\\matsh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\matsh\\OneDrive\\Desktop\\Uni\\SDU\\2nd. Semester\\Advanced OOP\\Home Assignements\\Cheeky-Squirrals-Home-Assignment-1-2nd\\Test\\NomeDelProgetto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\39380\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\matsh\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -1510,7 +1510,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -1557,7 +1557,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
