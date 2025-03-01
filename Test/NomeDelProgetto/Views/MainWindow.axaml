@@ -11,12 +11,12 @@
 
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-            <Button Content="Load File" Click="OnLoadClick" Margin="5"/>
+            <Button Content="Load File" Click="LoadFile" Margin="5"/>
             <Button Content="Save File" Click="OnSaveClick" Margin="5"/>
         </StackPanel>
 
         <ScrollViewer DockPanel.Dock="Bottom">
-            <UniformGrid x:Name="ImageGrid" Columns="1" Rows="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <UniformGrid x:Name="ImageGrid" Columns="1" Rows="1" HorizontalAlignment="Center" VerticalAlignment="Center"/> <!-- The rows and the columns will be dynamically changed based on the image size.-->
         </ScrollViewer>
     </DockPanel>
 </Window>
