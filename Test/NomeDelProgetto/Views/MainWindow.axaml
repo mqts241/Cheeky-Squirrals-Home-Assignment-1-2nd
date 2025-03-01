@@ -12,7 +12,7 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
             <Button Content="Load File" Click="LoadFile" Margin="5"/>
-            <Button Content="Save File" Click="OnSaveClick" Margin="5"/>
+            <Button Content="Save File" Click="SafeImage" Margin="5"/>
         </StackPanel>
 
         <ScrollViewer DockPanel.Dock="Bottom">

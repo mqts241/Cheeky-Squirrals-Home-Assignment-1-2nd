@@ -14,7 +14,7 @@ public class B2Image
         Pixels = new int[0, 0];
     }
 
-    public void LoadFile()
+    public void LoadImage()
     {
         //safe Filepath, test for existence and right file format
         string filePath = "smile.b2img.txt";
@@ -60,8 +60,28 @@ public class B2Image
             }
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Image loaded successfully!");
+            Console.WriteLine("Image loaded successfully!"); 
             Console.ResetColor();
         }
+    }
+
+    // Convert image to string format for saving
+    public string ImageToFile(B2Image image)
+    {
+        string dimensions = $"{image.Height} {image.Width}";
+        StringBuilder Pixels = new StringBuilder();
+        for (int i = 0; i < image.Height; i++)
+        {
+            for (int j = 0; j < image.Width; j++)
+            {
+                Pixels.Append(image.Pixels[i, j]);
+            }
+        }
+        return $"{dimensions}\n{Pixels}";
+    }
+
+    public void SafeImage(B2Image image)
+    {
+        
     }
 }
