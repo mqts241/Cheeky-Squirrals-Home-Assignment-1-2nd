@@ -98,4 +98,66 @@ public partial class MainWindow : Window
             MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
+
+    private class Modifying
+    {
+
+        public int Height { get; private set; }
+        public int Width { get; private set; }
+        public int[,] Pixels { get; private set; }
+        public Grid ImageGrid { get; private set; }
+
+        public Modifying()
+        {
+            Pixels = new int[0, 0];
+            ImageGrid = new Grid();
+        }
+
+        public void DisplayImage()
+        {
+            if (Pixels == null) return; // Check if there is an image to display
+            ImageGrid.Children.Clear(); // Clear previous image
+            ImageGrid.RowDefinitions.Clear(); // Clear previous row definitions
+            ImageGrid.ColumnDefinitions.Clear(); // Clear previous column definitions
+            
+            for (int i = 0; i < Height; i++) // Set rows i
+            {
+                ImageGrid.RowDefinitions.Add(new RowDefinition());
+            }
+
+            for (int j = 0; j < Width; j++) // Set columns j
+            {
+                ImageGrid.ColumnDefinitions.Add(new ColumnDefinition());
+            }
+
+            for (int i = 0; i < Height; i++) // Iterate over each pixel (i is the rows and j is the columns)
+            {
+                for (int j = 0; j < Width; j++) 
+                {
+                    var button = new Button // Create a button for each pixel where 1 is black and 0 is white
+                    {
+                        Content = Pixels[i, j] == 1 ? "⬛" : "⬜", //could use Brushes.Black and Brushes.White
+                        Tag = (i, j) // Store position
+                    };
+
+                    int row = i; // Store row
+                    int column = j; // Store column
+                    button.Click += PixelClick;
+                    Grid.SetRow(button, row); // Set row for button
+                    Grid.SetColumn(button, column); // Set column for button
+                    ImageGrid.Children.Add(button);
+                }
+            }
+        }
+
+        private void PixelClick(object? sender, RoutedEventArgs e) 
+        {
+            if (sender is Button button && button.Tag is (int i, int j)) // Check if the sender is a button and if it has a tag
+            {
+                // Toggle value
+                Pixels[i, j] = Pixels[i, j] == 0 ? 1 : 0;
+                button.Content = Pixels[i, j] == 1 ? "⬛" : "⬜"; //could use Brushes.Black and Brushes.White
+            }
+        }
+    }
 }
