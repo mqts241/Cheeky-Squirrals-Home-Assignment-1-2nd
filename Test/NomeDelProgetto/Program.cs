@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace Smile;
+namespace NomeDelProgetto;
 
 sealed class Program
 {

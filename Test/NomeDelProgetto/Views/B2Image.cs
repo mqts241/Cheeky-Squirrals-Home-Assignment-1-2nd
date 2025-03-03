@@ -1,4 +1,7 @@
-namespace Smile;
+using System;
+using System.IO;
+
+namespace NomeDelProgetto.Views;
 
 public class B2Image
 {

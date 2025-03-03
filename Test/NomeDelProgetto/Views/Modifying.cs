@@ -6,9 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Smile;
+namespace NomeDelProgetto.Views;
 
-public class Modify{
+public class Modifying{
 
 private void DisplayImage()
         {

@@ -3,7 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using NomeDelProgetto.ViewModels;
 
-namespace Smile;
+namespace NomeDelProgetto;
 
 public class ViewLocator : IDataTemplate
 {
