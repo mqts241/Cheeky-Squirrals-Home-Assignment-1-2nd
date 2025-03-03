@@ -1,4 +1,5 @@
 namespace Smile;
+
 public class B2Image
 {
     //Creating Attributes of an B2Image

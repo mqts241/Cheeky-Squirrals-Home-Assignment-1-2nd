@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace NomeDelProgetto.Views;
+namespace Smile;
 
 public partial class MainWindow : Window
 {

@@ -7,7 +7,7 @@ using Avalonia.Markup.Xaml;
 using NomeDelProgetto.ViewModels;
 using NomeDelProgetto.Views;
 
-namespace NomeDelProgetto;
+namespace Smile;
 
 public partial class App : Application
 {

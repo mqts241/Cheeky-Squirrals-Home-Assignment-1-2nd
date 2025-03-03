@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace Smile;
 
+public class Modify{
+
 private void DisplayImage()
         {
             if (Pixels == null) return; // Check if there is an image to display
@@ -40,3 +42,4 @@ private void DisplayImage()
                 button.Content = Pixels[i, j] == 1 ? "⬛" : "⬜";
             }
         }
+}
