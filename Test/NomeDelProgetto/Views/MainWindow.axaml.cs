@@ -1,6 +1,12 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
+using Avalonia.Layout;
+//using MessageBox.Avalonia;
+//using MessageBox.Avalonia.Enums;
 using System;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Text;
 
 namespace NomeDelProgetto.Views;
@@ -12,9 +18,13 @@ public partial class MainWindow : Window
     public int d_Height;
     public int d_Width;
     public int[,] Pixels;
+    //public Grid ImageGrid { get; private set; }
+
     public MainWindow()
     {
         InitializeComponent();
+        Pixels = new int[0, 0];
+        //ImageGrid = new Grid();
     }
 
 
@@ -40,6 +50,9 @@ public partial class MainWindow : Window
             string[] dimensions = lines[0].Split(' ');
             d_Height = int.Parse(dimensions[0]);
             Width = int.Parse(dimensions[1]);
+
+            // Initialize Pixels with the correct dimensions
+            Pixels = new int[d_Height, d_Width];
 
             //Read the Pixel Data
             string Data = lines[1];
@@ -99,36 +112,13 @@ public partial class MainWindow : Window
         }
     }
 
-    private class Modifying
-    {
-
-        public int Height { get; private set; }
-        public int Width { get; private set; }
-        public int[,] Pixels { get; private set; }
-        public Grid ImageGrid { get; private set; }
-
-        public Modifying()
-        {
-            Pixels = new int[0, 0];
-            ImageGrid = new Grid();
-        }
 
         public void DisplayImage()
         {
             if (Pixels == null) return; // Check if there is an image to display
             ImageGrid.Children.Clear(); // Clear previous image
-            ImageGrid.RowDefinitions.Clear(); // Clear previous row definitions
-            ImageGrid.ColumnDefinitions.Clear(); // Clear previous column definitions
-            
-            for (int i = 0; i < Height; i++) // Set rows i
-            {
-                ImageGrid.RowDefinitions.Add(new RowDefinition());
-            }
-
-            for (int j = 0; j < Width; j++) // Set columns j
-            {
-                ImageGrid.ColumnDefinitions.Add(new ColumnDefinition());
-            }
+            ImageGrid.Columns = d_Width; // Set columns
+            ImageGrid.Rows = d_Height; // Set rows
 
             for (int i = 0; i < Height; i++) // Iterate over each pixel (i is the rows and j is the columns)
             {
@@ -159,5 +149,4 @@ public partial class MainWindow : Window
                 button.Content = Pixels[i, j] == 1 ? "⬛" : "⬜"; //could use Brushes.Black and Brushes.White
             }
         }
-    }
 }

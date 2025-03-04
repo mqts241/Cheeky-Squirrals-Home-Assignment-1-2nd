@@ -10,13 +10,17 @@
         Title="NomeDelProgetto">
 
     <DockPanel>
-        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-            <Button Content="Load File" Click="LoadImage" Margin="5" Background="Orange" Foreground="White"/>
-            <Button Content="Save File" Click="SafeImage" Margin="5" Background="Green" Foreground="White"/>
-        </StackPanel>
+        <TabItem Header="Edit Your .b2Img File">
 
-        <ScrollViewer DockPanel.Dock="Top">
-            <UniformGrid x:Name="ImageGrid" Columns="1" Rows="1" HorizontalAlignment="Center" VerticalAlignment="Center"/> <!-- The rows and the columns will be dynamically changed based on the image size.-->
-        </ScrollViewer>
+            <ScrollViewer DockPanel.Dock="Top">
+                <UniformGrid x:Name="ImageGrid" Columns="1" Rows="1" HorizontalAlignment="Center" VerticalAlignment="Center"/> <!-- The rows and the columns will be dynamically changed based on the image size.-->
+            </ScrollViewer>
+
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                <Button Content="Load File" Click="LoadImage" Margin="5" Background="Orange" Foreground="White"/>
+                <Button Content="Save File" Click="SafeImage" Margin="5" Background="Green" Foreground="White"/>
+            </StackPanel>
+            
+        </TabItem>
     </DockPanel>
 </Window>
