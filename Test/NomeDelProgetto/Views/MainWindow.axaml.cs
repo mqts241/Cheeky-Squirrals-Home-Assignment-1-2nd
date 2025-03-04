@@ -8,6 +8,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text;
+using System.Threading.Tasks;
+using Avalonia.Platform.Storage;
+using Avalonia.Interactivity;
 
 namespace NomeDelProgetto.Views;
 
@@ -83,7 +86,7 @@ public partial class MainWindow : Window
     }
 
     // Convert image to string format for saving
-    public string ImageToFile(MainWindow image)
+    public string ImageToFile()
     {
         string dimensions = $"{image.d_Height} {image.Width}";
         StringBuilder Pixels = new StringBuilder();
@@ -97,18 +100,37 @@ public partial class MainWindow : Window
         return $"{dimensions}\n{Pixels}";
     }
 
-    public void SafeImage(MainWindow image)
+    public async Task SafeImage_Click(object? sender, RoutedEventArgs e)
     {
-        SaveFileDialog saveFileDialog = new SaveFileDialog
+        if (Pixels == null)
         {
-            Filter = "B2 Image Files (*.b2img.txt)|*.b2img.txt",
-            Title = "Save Image File"
-        };
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("No image to save!");
+            Console.ResetColor();
+            return;
+        }
 
-        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+        var file = await StorageProvider.SafeFilePickerAsync(new FilePickerSaveOptions
         {
-            File.WriteAllText(saveFileDialog.FileName, image.ToFileFormat());
-            MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Title = "Save Image",
+            Filter = new[] {new FilePickerFileType("Text Files", new[] {"txt"})}
+            DefaultExtension = "txt"
+        });
+
+        if (fille != null)
+        {
+            try
+            {
+                await using var stream = await file.OpenWriteAsync();
+                using var writer = new StreamWriter(stream);
+                ImageToFile(writer);
+            }
+            catch (Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Error saving image: {e.Message}");
+                Console.ResetColor();
+            }
         }
     }
 
