@@ -86,7 +86,7 @@ public partial class MainWindow : Window
     }
 
     // Convert image to string format for saving
-    public string ImageToFile()
+    public string ImageToFile(Streamreader image)
     {
         string dimensions = $"{image.d_Height} {image.Width}";
         StringBuilder Pixels = new StringBuilder();
@@ -117,7 +117,7 @@ public partial class MainWindow : Window
             DefaultExtension = "txt"
         });
 
-        if (fille != null)
+        if (file != null)
         {
             try
             {
